@@ -1,0 +1,41 @@
+        -:    0:Source:main.c
+        -:    0:Graph:main.gcno
+        -:    0:Data:-
+        -:    0:Runs:0
+        -:    1:#include <stdio.h>
+        -:    2:
+    #####:    3:void insertionSort(char *array, int len) {
+    #####:    4:    for (int i = 0; i < len; ++i) { // left to right.
+    #####:    5:        int curr = array[i];
+    #####:    6:        int leftIndex = i - 1;
+        -:    7:
+        -:    8:        // "Shifting" nonsmaller elements to right.
+    #####:    9:        while (array[leftIndex] > curr) {
+    #####:   10:            array[leftIndex + 1] = array[leftIndex];
+    #####:   11:            leftIndex --;
+        -:   12:
+    #####:   13:            if (leftIndex < 0) {
+    #####:   14:                break;
+        -:   15:            }
+        -:   16:        }
+    #####:   17:        array[leftIndex+1] = curr;  // The essense of the insertion sort is at this. 
+        -:   18:                                    // When 0 shifting happened, leftIndex = currIndex - 1, and leftIndex + 1 writes it back
+        -:   19:                                    // When multiple shifting happened but not exceeding low range, then leftIndex + 1 place it to the right spot.
+        -:   20:                                    // When leftIndex < 0 triggered, you expect leftIndex = -1, and +1 adds it back to the [0] index position.
+        -:   21:    }
+    #####:   22:}
+        -:   23:
+    #####:   24:void printArray(char *array, int len) {
+    #####:   25:    for (int i = 0; i < len; ++i) {
+    #####:   26:        printf("%d ", array[i]);
+        -:   27:    }
+    #####:   28:    printf("\n");
+    #####:   29:}
+        -:   30:
+    #####:   31:void main() {
+    #####:   32:    char initArray[] = {4,7,23,9,2,4,0,8};
+    #####:   33:    int length = sizeof(initArray) / sizeof(initArray[0]);
+    #####:   34:    printArray(initArray, length);
+    #####:   35:    insertionSort(initArray, length);
+    #####:   36:    printArray(initArray, length);
+    #####:   37:}
