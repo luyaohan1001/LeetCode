@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 static const int mostNegative = (int)(~(((unsigned int) -1) >> 1));
 
 /**
@@ -35,4 +37,8 @@ int maxProfit(int *prices, int priceSize) {
         }
     }
     return retMax;
+}
+
+void main() {
+
 }

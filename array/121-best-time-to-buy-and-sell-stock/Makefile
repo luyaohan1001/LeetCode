@@ -11,7 +11,7 @@ target:
 .PHONY: clean
 
 clean:
-	rm -rf main main*g*
+	rm -rf main main*g* disassemble.txt
 
-diassemble:
-	objdump -d main > diassembled.txt
+disassemble:
+	objdump -d main > disassembled.txt
