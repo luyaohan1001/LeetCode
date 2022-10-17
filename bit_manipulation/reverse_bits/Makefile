@@ -1,9 +1,8 @@
 CC=gcc
 CFLAGS= -g -pg -ftest-coverage
-LDFLAGS=-Wl,-MAP=final.map
 
 target:	
-	$(CC) $(CFLAGS) $(LDFLAGS) main.c -o main
+	$(CC) $(CFLAGS) main.c -o main
 
 .PHONY: clean
 
@@ -12,8 +11,8 @@ target:
 clean:
 	rm -rf main
 
-diassemble:
-	objdump -d main > objdumped.txt
+disassemble:
+	objdump -d main > disassembled.txt
 
 prof:
 	gprof main gmon.out > gprof_result.txt
@@ -23,3 +22,6 @@ coverage: run
 
 run:
 	./main
+
+debug: target
+	gdb main

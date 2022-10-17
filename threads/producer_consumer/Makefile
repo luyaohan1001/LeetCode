@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGs=-std=c11 \
 		-g \
-		-lpthread 
+		-pthread 
 
 LINTER=/home/luyaohan1001/Projects/cppcheck/addons/misra.py
 
@@ -20,6 +20,7 @@ debug:
 	gdb main
 
 misra_check:
+
 	cppcheck --dump main.c
 	$(LINTER) main.c.dump
 

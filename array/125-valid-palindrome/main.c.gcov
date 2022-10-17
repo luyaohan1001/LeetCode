@@ -1,0 +1,84 @@
+        -:    0:Source:main.c
+        -:    0:Graph:main.gcno
+        -:    0:Data:main.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <stdbool.h>
+        -:    4:#include <string.h>
+        -:    5:
+        -:    6:
+        -:    7:// ENUM for better code readability.
+        -:    8:typedef enum { // anynomous enum
+        -:    9:    CAPITALIZED,
+        -:   10:    UNCAPITALIZED,
+        -:   11:    NOT_ALPHA
+        -:   12:} eCap_t;
+        -:   13:
+        4:   14:static inline eCap_t isAlpha(char c) {
+        -:   15:    // Initialize and make sure single exit of the function. 
+        4:   16:    eCap_t ret = NOT_ALPHA;
+        4:   17:    if ((c >= 'a') && (c <= 'z')) {
+        2:   18:        ret = UNCAPITALIZED;
+        -:   19:    } 
+        -:   20:
+        4:   21:    if ((c >= 'A') && (c <= 'Z')) {
+        2:   22:        ret = CAPITALIZED;
+        -:   23:    } 
+        4:   24:    return ret;
+        -:   25:}
+        -:   26:
+        1:   27:bool isPalindrome(char * s){
+        -:   28:    // NULL Pointer check.
+        1:   29:    if (NULL == s) {
+    #####:   30:        return false;
+        -:   31:    }
+        -:   32:
+        1:   33:    eCap_t eCap = UNCAPITALIZED;
+        -:   34:
+        1:   35:    int taili = strlen(s) - 1;
+        1:   36:    int maxlen = strlen(s) - 1;
+        1:   37:    int headi = 0;
+        1:   38:    while (taili >= headi) {
+        1:   39:        while (isAlpha(s[headi]) == NOT_ALPHA) {
+    #####:   40:            ++headi;
+        -:   41:        }
+        -:   42:
+        -:   43:        // fault detection
+        1:   44:        if (headi > maxlen) {
+    #####:   45:            break;
+        -:   46:        }
+        -:   47:
+        1:   48:        if (isAlpha(s[headi]) == CAPITALIZED) {
+        1:   49:            s[headi] = s[headi] - 'A';
+        -:   50:        }
+        -:   51:
+        -:   52:
+        1:   53:        while (!isAlpha(s[taili]) == NOT_ALPHA) {
+        -:   54:            --taili;
+        -:   55:        } 
+        -:   56:
+        1:   57:        if (taili < 0) {
+    #####:   58:            break;
+        -:   59:        }
+        -:   60:
+        1:   61:        if (isAlpha(s[taili]) == CAPITALIZED) {
+    #####:   62:            s[taili] = s[taili] - 'A';
+        -:   63:        }
+        -:   64:
+        -:   65:        // Now compare;
+        1:   66:        if (s[taili] != s[headi]) {
+        1:   67:            return false;
+        -:   68:        } else{
+    #####:   69:            taili--;
+    #####:   70:            headi--;
+        -:   71:        }
+        -:   72:    }
+        -:   73:
+    #####:   74:    return true;
+        -:   75:}
+        -:   76:
+        1:   77:void main() {
+        1:   78:    char s[] = "A man, a plan, a canal: Panama";
+       1*:   79:    printf("s is palindrome: %s\n", isPalindrome(s) ? "true" : "false");
+        1:   80:}

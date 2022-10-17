@@ -1,15 +1,24 @@
 #include <stdio.h>
 
+/**
+ * insertionSort:
+ *  Space complexity: O(n)
+ *  Time complexity Worst: O(n**2)
+ *  Time complexity Best/Average: O(n) --> when array is almost sorted.
+ * 
+ */
+
 void insertionSort(char *array, int len) {
     for (int i = 0; i < len; ++i) { // left to right.
-        int curr = array[i];
-        int leftIndex = i - 1;
+        int curr = array[i]; 
+        int leftIndex = i - 1; // all the index left to curr.
 
         // "Shifting" nonsmaller elements to right.
         while (array[leftIndex] > curr) {
             array[leftIndex + 1] = array[leftIndex];
             leftIndex --;
 
+            // You cannot just keep decrementing the leftIndex.
             if (leftIndex < 0) {
                 break;
             }
