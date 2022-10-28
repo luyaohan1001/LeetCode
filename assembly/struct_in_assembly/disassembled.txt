@@ -1,0 +1,50 @@
+
+main.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	e52db004 	push	{fp}		; (str fp, [sp, #-4]!)
+   4:	e28db000 	add	fp, sp, #0
+   8:	e24dd00c 	sub	sp, sp, #12
+   c:	e3a03000 	mov	r3, #0
+  10:	e50b3008 	str	r3, [fp, #-8]
+  14:	e1a00000 	nop			; (mov r0, r0)
+  18:	e28bd000 	add	sp, fp, #0
+  1c:	e49db004 	pop	{fp}		; (ldr fp, [sp], #4)
+  20:	e12fff1e 	bx	lr
+
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	43434700 	movtmi	r4, #14080	; 0x3700
+   4:	5228203a 	eorpl	r2, r8, #58	; 0x3a
+   8:	62707361 	rsbsvs	r7, r0, #-2080374783	; 0x84000001
+   c:	206e6169 	rsbcs	r6, lr, r9, ror #2
+  10:	322e3031 	eorcc	r3, lr, #49	; 0x31
+  14:	362d312e 	strtcc	r3, [sp], -lr, lsr #2
+  18:	6970722b 	ldmdbvs	r0!, {r0, r1, r3, r5, r9, ip, sp, lr}^
+  1c:	31202931 			; <UNDEFINED> instruction: 0x31202931
+  20:	2e322e30 	mrccs	14, 1, r2, cr2, cr0, {1}
+  24:	30322031 	eorscc	r2, r2, r1, lsr r0
+  28:	31303132 	teqcc	r0, r2, lsr r1
+  2c:	Address 0x0000002c is out of bounds.
+
+
+Disassembly of section .ARM.attributes:
+
+00000000 <.ARM.attributes>:
+   0:	00002e41 	andeq	r2, r0, r1, asr #28
+   4:	61656100 	cmnvs	r5, r0, lsl #2
+   8:	01006962 	tsteq	r0, r2, ror #18
+   c:	00000024 	andeq	r0, r0, r4, lsr #32
+  10:	06003605 	streq	r3, [r0], -r5, lsl #12
+  14:	09010806 	stmdbeq	r1, {r1, r2, fp}
+  18:	12020a01 	andne	r0, r2, #4096	; 0x1000
+  1c:	15011404 	strne	r1, [r1, #-1028]	; 0xfffffbfc
+  20:	18031701 	stmdane	r3, {r0, r8, r9, sl, ip}
+  24:	1a011901 	bne	46430 <main+0x46430>
+  28:	1e011c02 	cdpne	12, 0, cr1, cr1, cr2, {0}
+  2c:	Address 0x0000002c is out of bounds.
+
