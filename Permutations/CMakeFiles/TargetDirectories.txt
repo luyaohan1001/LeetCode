@@ -1,0 +1,3 @@
+/Users/lhan/LeetCode/Permutations/CMakeFiles/Permutations.dir
+/Users/lhan/LeetCode/Permutations/CMakeFiles/edit_cache.dir
+/Users/lhan/LeetCode/Permutations/CMakeFiles/rebuild_cache.dir
