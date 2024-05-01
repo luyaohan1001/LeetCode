@@ -1,0 +1,3 @@
+/Users/lhan/LeetCode/55-jump-game/CMakeFiles/jump-game.dir
+/Users/lhan/LeetCode/55-jump-game/CMakeFiles/edit_cache.dir
+/Users/lhan/LeetCode/55-jump-game/CMakeFiles/rebuild_cache.dir
