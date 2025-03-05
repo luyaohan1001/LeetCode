@@ -1,69 +1,59 @@
 #include <iostream>
-#include <string>
 
 using namespace std;
 
 class Solution {
-private:
-    typedef struct {
-        int sum;
-        int carry;
-    } bit_adder_result;
+    public:
 
-    bit_adder_result res;
-public:
+        typedef union {
+            struct {
+                uint8_t sum : 4;
+                uint8_t carry : 4;
+            };
+            uint8_t byte;
+        } result_t;
 
-    Solution() {
-        res.sum = 0;
-        res.carry = 0;
-    }
-
-    inline void single_bit_add(char c1, char c2) {
-        int temp = (c1 - '0') + (c2 - '0') + res.carry;
-        res.carry = temp / 2;
-        res.sum = temp % 2;
-    }
-
-    string addBinary(string a, string b) {
-        std::string output = "";
-
-        auto aa = a.rbegin(), bb = b.rbegin();
-
-        // iterate both strings reverse order.
-        for (; (aa != a.rend()) && (bb != b.rend()); aa++, bb++) {
-            single_bit_add(*aa, *bb);
-            output += static_cast<char>(res.sum + '0') + output;
+        Solution() {
+            bit_res.byte = 0;
         }
 
-        // If residue exists for a
-        for (; aa != a.rend(); aa++) { 
-            single_bit_add(*aa, '0');
-            output = static_cast<char>(res.sum + '0') + output;
+
+        char inline i2c(uint32_t i) {return i + '0';}
+        uint32_t inline c2i(char c) {return c - '0';}
+
+        result_t add_bit_sum(char c1, char c2, char carry) {
+            result_t res;
+            res.sum = (c1 ^ c2 ^ carry);
+            res.carry = (c1 + c2 + carry) > 1;
+            return res;
         }
 
-        // If residue exists for b
-        for (; bb != b.rend(); bb++) { 
-            single_bit_add('0', *bb);
-            output = static_cast<char>(res.sum + '0') + output;
+
+        string add_binary(string a, string b) {
+            string retstr = "";
+            uint32_t sum = 0, carry = 0;
+            for (auto charA = a.rbegin(), charB = b.rbegin(); charA != a.rend() && charB != b.rend(); ++charA, ++charB) {
+                result_t res;
+                res = add_bit_sum(*charA, *charB, i2c(carry));
+                carry = c2i(res.carry);
+                retstr.insert(retstr.begin(), i2c(res.sum));
+            }
+            return retstr;
         }
 
-        // Non zero carry to be appended
-        if (res.carry) {
-            output = static_cast<char>(res.carry + '0') + output;
-        }
 
-        return output;
-    }
+    private:
+        result_t bit_res;
 };
 
 int main(int argc, char const *argv[])
 {
-    string s1 = "1010";
-    string s2 = "101";
+    Solution sol;
+    string a = "1011";
+    string b = "0100";
 
-    std::unique_ptr<Solution> p_solution(new Solution);
-    string result = p_solution->addBinary(s1, s2);
-
-    cout << result << endl;
+    string res = sol.add_binary(a, b);
+    cout << res << endl;
+    std::cout<< "Hello World!" << std::endl;
     return 0;
 }

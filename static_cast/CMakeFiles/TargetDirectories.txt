@@ -1,0 +1,3 @@
+/Users/lhan/LeetCode/static_cast/CMakeFiles/static_cast.dir
+/Users/lhan/LeetCode/static_cast/CMakeFiles/edit_cache.dir
+/Users/lhan/LeetCode/static_cast/CMakeFiles/rebuild_cache.dir
