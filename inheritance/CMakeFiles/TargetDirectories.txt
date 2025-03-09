@@ -1,0 +1,4 @@
+/Users/lhan/LeetCode/inheritance/CMakeFiles/inheritance.dir
+/Users/lhan/LeetCode/inheritance/CMakeFiles/objdump.dir
+/Users/lhan/LeetCode/inheritance/CMakeFiles/edit_cache.dir
+/Users/lhan/LeetCode/inheritance/CMakeFiles/rebuild_cache.dir
