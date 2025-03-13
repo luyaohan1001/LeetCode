@@ -10,36 +10,43 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
  class Solution {
     public:
         ListNode* swapPairs(ListNode* head) {
             // edge case
-            if (head == nullptr || head->next == nullptr) return head;
-    
-            // initialization
-            ListNode* n1 = head;
-            ListNode* n2 = n1->next;
-            ListNode* pp = nullptr;
-            head = n2;
-    
+            if (nullptr == head || nullptr == head->next) {
+                return head;
+            }
+            // from above, list has at least two nodes in the list
+            ListNode* prev = head, *curr = head->next;
+            ListNode* old_next, *new_prev = nullptr;
+            // [prev] -> [curr] -> [old_next]
             while (true) {
-                ListNode* temp = n2->next;
-                n2->next = n1;
-                n1->next = temp;
-                if (pp != nullptr) pp->next = n2;
+                old_next = curr->next;
+                curr->next = prev;
+                prev->next = old_next;
+                if (prev == head) head = curr;
+                if (new_prev) new_prev->next = curr;
     
-                // how do we update?
-                if (n1->next == nullptr || n1->next->next == nullptr) {
-                    break;
-                }
-                pp = n1;
-                n1 = pp->next;
-                n2 = pp->next->next;
+                // Now the update condition
+                new_prev = prev;
+                prev = prev->next;
+                if (!prev || !prev->next) break;
+                curr = prev->next;
             }
             return head;
         }
     };
-
 
     
 int main(int argc, char const *argv[])
