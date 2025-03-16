@@ -1,0 +1,3 @@
+/Users/lhan/LeetCode/friend/CMakeFiles/friend.dir
+/Users/lhan/LeetCode/friend/CMakeFiles/edit_cache.dir
+/Users/lhan/LeetCode/friend/CMakeFiles/rebuild_cache.dir

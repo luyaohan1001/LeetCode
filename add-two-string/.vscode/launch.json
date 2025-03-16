@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "name": "Debug C Program",
+          "type": "lldb",
+          "request": "launch",
+          "program": "${workspaceFolder}/main",
+          "args": [],
+          "stopAtEntry": false,
+          "cwd": "${workspaceFolder}",
+          "environment": [],
+          "externalConsole": false,
+          "MIMode": "lldb",
+          // "preLaunchTask": "build",
+          "setupCommands": [
+              {
+                  "text": "break main",
+                  "description": "Set breakpoint at main",
+                  "ignoreFailures": false
+              }
+          ]
+      }
+  ]
+}

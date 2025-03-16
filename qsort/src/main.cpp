@@ -5,41 +5,40 @@
 
 using namespace std;
 
-void swap(uint32_t *a, uint32_t *b) {
-    uint32_t temp = *a;
+void swap(int* a, int *b) {
+    int temp = *a;
     *a = *b;
     *b = temp;
 }
 
-uint32_t partition(uint32_t arr[], uint32_t s, uint32_t e) {
-    uint32_t pivot = arr[e]; // Using last element as pivot
-    uint32_t i = s - 1;
-
-    // Find all the smaller ones to the left of the pivot
-    for (uint32_t j = s; j < e; ++j) {
-        if (arr[j] < pivot) {
-            ++i;
+int partition(int* arr, int l, int r) {
+    int pivot_idx = r;
+    int i = l, j = l - 1;
+    for (; i < r; ++i) {
+        if (arr[i] <= arr[pivot_idx]) {
+            ++j; // move index to place where the sorted element belong
             swap(&arr[i], &arr[j]);
         }
     }
-    swap(&arr[i + 1], &arr[e]);
-    return i + 1;
+    // now place pivot to where it should belong
+    swap(&arr[pivot_idx], &arr[++j]); // j is the location of the pivot
+    return j;
 }
 
-void qsort(uint32_t arr[], uint32_t s, uint32_t e) {
-    if (s >= e) {
+
+void qsort(int* arr, int l, int r) {
+    if (l > r) {
         return;
     }
-    uint32_t pivot = partition(arr, s, e);
-    if (pivot > 0) qsort(arr, s, pivot - 1); // Ensure pivot - 1 does not underflow
-    qsort(arr, pivot + 1, e);
+    int pivot = partition(arr, l, r); // impl partition
+    qsort(arr, l, pivot - 1);
+    qsort(arr, pivot + 1, r);
 }
-
 
 int main(int argc, char const *argv[])
 {
-    uint32_t arr[] = {8,2,4,10,84,1,3,0};
-    qsort(arr, 0, (sizeof(arr)/sizeof(uint32_t) - 1));
+    int arr[] = {8,2,4,10,84,1,3,0};
+    qsort(&arr[0], 0, (sizeof(arr)/sizeof(uint32_t) - 1));
     for (int i = 0; i < 8; ++i) {
         cout << arr[i] << " " << endl;
     }
