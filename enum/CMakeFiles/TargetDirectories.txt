@@ -1,0 +1,3 @@
+/Users/lhan/LeetCode/enum/CMakeFiles/enum.dir
+/Users/lhan/LeetCode/enum/CMakeFiles/edit_cache.dir
+/Users/lhan/LeetCode/enum/CMakeFiles/rebuild_cache.dir

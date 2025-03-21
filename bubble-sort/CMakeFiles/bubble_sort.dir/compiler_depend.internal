@@ -40,4 +40,5 @@ CMakeFiles/bubble_sort.dir/main.o
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_va_list.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/cdefs.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/stdio.h
+ /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdbool.h
 

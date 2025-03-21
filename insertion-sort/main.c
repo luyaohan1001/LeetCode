@@ -9,24 +9,18 @@
  */
 
 void insertionSort(char *array, int len) {
-    for (int i = 0; i < len; ++i) { // left to right.
-        int curr = array[i]; 
-        int leftIndex = i - 1; // all the index left to curr.
-
-        // "Shifting" nonsmaller elements to right.
-        while (array[leftIndex] > curr) {
-            array[leftIndex + 1] = array[leftIndex];
-            leftIndex --;
-
-            // You cannot just keep decrementing the leftIndex.
-            if (leftIndex < 0) {
-                break;
-            }
+    if (len == 1) return;
+    for (int t_idx = 1; t_idx < len; ++t_idx) {
+        int t_key = array[t_idx];
+        int j = t_idx - 1;
+        while (j >= 0 && array[j] > t_key) { 
+            // condition 1: j must be bigger than 0
+            // condition 2: any elements bigger than the key should be moved to the right
+            array[j + 1] = array[j];
+            --j;
         }
-        array[leftIndex+1] = curr;  // The essense of the insertion sort is at this. 
-                                    // When 0 shifting happened, leftIndex = currIndex - 1, and leftIndex + 1 writes it back
-                                    // When multiple shifting happened but not exceeding low range, then leftIndex + 1 place it to the right spot.
-                                    // When leftIndex < 0 triggered, you expect leftIndex = -1, and +1 adds it back to the [0] index position.
+        // at the end of the loop j < 0
+        array[++j] = t_key;
     }
 }
 
@@ -37,10 +31,11 @@ void printArray(char *array, int len) {
     printf("\n");
 }
 
-void main() {
+int main() {
     char initArray[] = {4,7,23,9,2,4,0,8};
     int length = sizeof(initArray) / sizeof(initArray[0]);
     printArray(initArray, length);
     insertionSort(initArray, length);
     printArray(initArray, length);
+    return 0;
 }

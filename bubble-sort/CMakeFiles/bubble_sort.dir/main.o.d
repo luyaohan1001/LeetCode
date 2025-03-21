@@ -36,4 +36,5 @@ CMakeFiles/bubble_sort.dir/main.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_off_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_ssize_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/secure/_stdio.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/secure/_common.h
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/secure/_common.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdbool.h

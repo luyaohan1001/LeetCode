@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libmy_objects.a CMakeFiles/my_objects.dir/src/c_file.c.o CMakeFiles/my_objects.dir/src/main.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libmy_objects.a

@@ -1,0 +1,3 @@
+/Users/lhan/LeetCode/template/CMakeFiles/template.dir
+/Users/lhan/LeetCode/template/CMakeFiles/edit_cache.dir
+/Users/lhan/LeetCode/template/CMakeFiles/rebuild_cache.dir

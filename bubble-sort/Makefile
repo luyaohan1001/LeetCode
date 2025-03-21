@@ -129,6 +129,19 @@ bubble_sort/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bubble_sort.dir/build.make CMakeFiles/bubble_sort.dir/build
 .PHONY : bubble_sort/fast
 
+#=============================================================================
+# Target rules for targets named run_gprof
+
+# Build rule for target.
+run_gprof: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 run_gprof
+.PHONY : run_gprof
+
+# fast build rule for target.
+run_gprof/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_gprof.dir/build.make CMakeFiles/run_gprof.dir/build
+.PHONY : run_gprof/fast
+
 # target to build an object file
 main.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bubble_sort.dir/build.make CMakeFiles/bubble_sort.dir/main.o
@@ -152,6 +165,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... run_gprof"
 	@echo "... bubble_sort"
 	@echo "... main.o"
 	@echo "... main.i"

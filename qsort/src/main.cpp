@@ -12,16 +12,15 @@ void swap(int* a, int *b) {
 }
 
 int partition(int* arr, int l, int r) {
-    int pivot_idx = r;
-    int i = l, j = l - 1;
-    for (; i < r; ++i) {
-        if (arr[i] <= arr[pivot_idx]) {
-            ++j; // move index to place where the sorted element belong
-            swap(&arr[i], &arr[j]);
+    int pvt_idx = r;
+    int pvt = arr[r];
+    int j = l - 1;
+    for (int i = l; i < r; ++i) {
+        if (arr[i] < pvt) {
+            swap(&arr[++j], &arr[i]);
         }
     }
-    // now place pivot to where it should belong
-    swap(&arr[pivot_idx], &arr[++j]); // j is the location of the pivot
+    swap(&arr[++j], &arr[r]);
     return j;
 }
 

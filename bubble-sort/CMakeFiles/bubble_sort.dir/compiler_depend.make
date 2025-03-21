@@ -38,8 +38,11 @@ CMakeFiles/bubble_sort.dir/main.o: main.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_uintptr_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_va_list.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/cdefs.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/stdio.h
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/stdio.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdbool.h
 
+
+/Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdbool.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/cdefs.h:
 

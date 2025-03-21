@@ -1,0 +1,3 @@
+/Users/lhan/LeetCode/insertion-sort/CMakeFiles/insertion_sort.dir
+/Users/lhan/LeetCode/insertion-sort/CMakeFiles/edit_cache.dir
+/Users/lhan/LeetCode/insertion-sort/CMakeFiles/rebuild_cache.dir

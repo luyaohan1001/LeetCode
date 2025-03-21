@@ -9,20 +9,29 @@ class parent {
     public:
         int age;
         int fav_number;
+        friend friend_class f;
 
         virtual void call_protected_method() {
             cout << "parent call protected method" << endl;
         }
-
-
-
     protected:
         int money = 100;
 };
 
+
+class friend_class {
+    public:
+    void print_friend_money(const parent& p) {
+        cout << "friend money" << p.age << endl;
+    }
+
+};
+
+
 void peek_parent_money(parent* p) {
     cout << "peek parent money: " << p->money << endl;
 }
+
 
 
 class child : public parent {
